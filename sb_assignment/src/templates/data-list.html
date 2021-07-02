@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+                body{
+
+background-color: #eee; 
+}
+
+table {
+  border-collapse: collapse;
+  width: 70%;
+  padding: 20px;
+  margin-bottom: 50px;
+  border: 8px solid rgb(44, 25, 25);
+  background-color: bisque;
+}
+
+th, td {
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {background-color: #bcdfd3;}
+
+.btn:link, .btn:visited {
+                background-color: #369ef4;
+                color: white;
+                padding: 14px 25px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+            }
+
+            .btn:hover, .btn:active {
+                background-color: rgb(187, 186, 186);
+            }
+            
+            .data:link {
+            text-decoration: none;
+            font-size: large;
+            font-weight: normal;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color: rgb(44, 43, 41);
+            }
+            .data:visited {
+            text-decoration: none;
+            }
+            .data:hover {
+            text-decoration: underline;
+            }
+            .data:active {
+            text-decoration: underline;
+            }
+
+</style>
+</head>
+<body>
+<a style="margin-left: 200px; margin-top: 30px;" class="btn" href = "{% url 'index' %}">Home</a>
+<h1 align="center">List of Stored Data</h1>
+
+<table align="center">
+  <tr>
+  <th><h2>Title</h2></th>
+  </tr>
+  <tr>
+  <td>
+    {% for x in data %}
+    <tr>
+        <td>
+            <a class="data" href="{% url 'details' id=x.id %}">{{x.title}}</a>
+        </td>
+    </tr>
+    {% endfor %}
+  </td>
+  </tr>
+</table>
+
+</body>
+</html>
